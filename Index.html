@@ -62,8 +62,8 @@
                             <input type="checkbox" name="" id="remember-me">
                             <label for="remember-me"> remember me</label>
                         </div> -->
-                        <input type="submit" value="Sign in" class="btn">
-                        <p>Don't have an account?<a href="signin.html">Sign Up</a></p>
+                        <input type="button" value="Sign in" class="btn" onclick="validoSignIn()" >
+                        <p>Don't have an account?<a href="SignUp.html">Sign Up</a></p>
                     </form>
                 </div>
             </div>    
@@ -375,11 +375,11 @@
         <div class="row">
     
             <form action="">
-                <input type="text" placeholder="Name" class="box">
-                <input type="email" placeholder="Email" class="box">
-                <input type="number" placeholder="Number" class="box">
-                <textarea name="" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
-                <input type="submit" value="send message" class="btn">
+                <input type="text" placeholder="Name" class="box" id="name">
+                <input type="email" placeholder="Email" class="box" id="email">
+                <input type="tel" placeholder="Number" class="box" id="number">
+                <textarea name="" class="box" placeholder="Message" id="text" cols="30" rows="10"></textarea>
+                <input type="submit" value="send message" class="btn" onclick="validoContact()">
             </form>
     
             <div class="image">

@@ -67,3 +67,90 @@ document.querySelector('#login-btn').onclick = () =>{
 document.querySelector('#close-login-btn').onclick = () =>{
   loginForm.classList.remove('active')
 }
+
+
+function validoSignIn(){
+  var emaili = document.getElementById("emailid").value;
+  var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+
+  if(emaili.trim()==""){
+    alert("Ploteso fushen per email: ");
+  }
+  else if((regex.test(emaili))){
+    alert("Emaili pranohet");
+  }
+  else{
+    alert("Emaili nuk pranohet");
+  }
+
+  var passwordi = document.getElementById("passwordid").value;
+  var regex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/
+
+  if(passwordi.trim()==""){
+    alert("Ploteso fushen per password: ");
+  }
+  else if((regex.test(passwordi))){
+    alert("Passwordi pranohet");
+  }
+  else{
+    alert("Passwordi nuk pranohet");
+  }
+}
+
+
+function validoContact(){
+
+  var emri=document.getElementById("name").value;
+  var regex=/^[a-zA-Z]{3,}$/
+
+  if(emri.trim()==""){
+      alert("Shkruaj emrin: ");
+  }
+  else if((regex.test(emri))){
+      alert("Emri pranohet");
+  }
+  else{
+      alert("Emri nuk pranohet");
+  }
+
+  var email = document.getElementById("email").value;
+    var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+  
+    if(email.trim()==""){
+      alert("Ploteso fushen per email: ");
+    }
+    else if((regex.test(email))){
+      alert("Email-i pranohet");
+    }
+    else{
+      alert("Email-i nuk pranohet");
+    }
+
+  var numri=document.getElementById("number").value;
+  var regex=/^0+4+[3-5 | 8-9]+[0-9]{6}$/
+
+  if(numri.trim()==""){
+      alert("Shkruaj numrin e telefonit:");
+  }
+  else if((regex.test(numri))){
+      alert("Numri pranohet");
+  }
+  else{
+      alert("Numri gabim");
+  }
+  
+  var tekst=document.getElementById("text").value;
+  var regex=/^[a-zA-Z0-9]{3,}$/
+
+  if(tekst.trim()==""){
+      alert("Shkruani kerkesen: ");
+  }
+  else if((regex.test(tekst))){
+      alert("Kerkesa pranohet");
+  }
+  else{
+      alert("Kerkesa nuk pranohet");
+  }
+
+}
+
