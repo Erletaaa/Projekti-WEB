@@ -160,7 +160,7 @@ session_start();
                         </div>
                     </div>
                     <div class="content">
-                        <h3><a href="ProductDetails.php?id=<?php echo($product->id)?>"><?php echo($product->title)?></a></h3>
+                        <h3><a class="product-title" href="ProductDetails.php?id=<?php echo($product->id)?>"><?php echo($product->title)?></a></h3>
                         <div class="price"><?php echo($product->price)?> €<span></span> </div>
                     </div>
                 </div>
