@@ -11,30 +11,8 @@
     
 </head>
 <body>
-    <header>
+<?php require("Header.php")?>
 
-        <input type="checkbox" name="" id="toggler">
-        <label for="toggler" class="fas fa-bars"></label>
-    
-        <a href="index.html" class="logo">
-            <img src="images/oceanica.png" width="60px">
-            <span>OCEANICA</span>
-        </a>
-    
-        <nav class="navbar">
-            <a href="index.html">Home</a>
-            <a href="index.html">About Us</a>
-            <a href="index.html#products">Latest products</a>
-            <a href="categories.html">Categories</a>
-            <a href="index.html#contact">Contact Us</a>
-        </nav>
-    
-        <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-shopping-cart"></a>
-            <a href="#" class="fas fa-user"></a>
-        </div>
-    </header>
         <section class="about" id="about">
 
             <h1 class="heading"> </h1>
