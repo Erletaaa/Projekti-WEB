@@ -2,6 +2,7 @@
 require_once('Connection.php');
 require_once('models/Order.php');
 require_once('models/OrderProduct.php');
+require_once('ProductRepository.php');
 
 class OrderRepository{
     public function getAll(){
@@ -76,7 +77,20 @@ class OrderRepository{
             $sql = "INSERT INTO order_products(order_id,product_id,quantity) VALUES(?,?,?)";
             $stmt = $connection->prepare($sql);
             $stmt->execute([$orderId,$product->id,$product->quantity]);
+
+            $this->reduceStockForProduct($connection,$product->id,$customerId);
         }
+    }
+
+    public function reduceStockForProduct($connection,$productId,$customerId){
+        $productRepo = new ProductRepository();
+        $product = $productRepo->getById($productId);
+
+        $stock = $product->stock-1;
+
+        $sql = "UPDATE products SET stock=?, updated_on=?, updated_by=? WHERE id=?";
+        $stmt= $connection->prepare($sql);
+        $stmt->execute([$stock,date('Y-m-d H:i:s'),$customerId,$productId]);
     }
 }
 ?>

@@ -138,7 +138,25 @@ session_start();
                         <img src="<?php echo($product->pictureUrl)?>" alt="">
                         <div class="icons">
                             <a href="addToWishlist.php?productId=<?php echo($product->id)?>" class="fas fa-heart"></a>
-                            <a href="addToCart.php?id=<?php echo($product->id)?>" class="cart-btn">add to cart</a>
+                            <a href="
+                            <?php
+                                if($product->stock>0){
+                                    echo("addToCart.php?id=$product->id");
+                                }
+                                else{
+                                    echo("#");
+                                }
+                            ?>
+                            " class="cart-btn">
+                                <?php
+                                    if($product->stock>0){
+                                        echo("add to cart");
+                                    }
+                                    else{
+                                        echo("no stock");
+                                    }
+                                ?>
+                            </a>
                         </div>
                     </div>
                     <div class="content">

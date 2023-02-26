@@ -156,6 +156,19 @@ class CustomerRepository{
         $stmt->execute([date('Y-m-d H:i:s'),$userId,$id]);
     }
 
+    public function deleteCustomer($id){
+        $database = new DbConnection();
+        $connection = $database->getConnection();
+
+        $mappingDeleteSql = "DELETE FROM wishlist WHERE customer_id=?";
+        $stmt = $connection->prepare($mappingDeleteSql);
+        $stmt->execute([$id]);
+
+        $categoryDeleteSql = "DELETE FROM customers WHERE id=?";
+        $stmt = $connection->prepare($categoryDeleteSql);
+        $stmt->execute([$id]);
+    }
+
     public function hashPassword($password){
         return hash('sha256',$password);
     }
