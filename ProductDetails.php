@@ -45,7 +45,25 @@ $product = $productRepo->getById($productId);
                     </div>
                     <p class = "product-description"><?php echo($product->description)?></p>
                     <div class = "btn-groups">
-                        <a href="addToCart.php?id=<?php echo($product->id)?>" class = "add-cart-btn"><i class = "fas fa-shopping-cart"></i>add to cart</a>
+                        <a href="
+                        <?php
+                            if($product->stock>0){
+                                echo("addToCart.php?id=$product->id");
+                            }
+                            else{
+                                echo("#");
+                            }
+                        ?>
+                        " class = "add-cart-btn"><i class = "fas fa-shopping-cart"></i>
+                            <?php
+                                if($product->stock>0){
+                                    echo("add to cart");
+                                }
+                                else{
+                                    echo("no stock");
+                                }
+                            ?>
+                            </a>
                         <button type = "button" class = "buy-now-btn" onclick="redirectToShoppingCart()"><i class = "fas fa-wallet"></i>buy now</button>
                     </div>
                 </div>
