@@ -24,7 +24,7 @@ require_once('database/CategoryRepository.php');
             $categoryId=$_GET['category'];
 
             $allProducts = $productRepo->getProductsForCategory($categoryId);
-            $category = $categoryRepo->getById($categoryId)
+            $category = $categoryRepo->getById($categoryId);
         ?>    
         <h1 class="heading"><?php echo($category->name)?></h1>
         <div class="box-container">
@@ -38,7 +38,24 @@ require_once('database/CategoryRepository.php');
                                     <img src="<?php echo($productItem->pictureUrl)?>" alt="<?php echo($productItem->title)?>">
                                     <div class="icons">
                                         <a href="addToWishlist.php?productId=<?php echo($productItem->id)?>" class="fas fa-heart"></a>
-                                        <a href="addToCart.php?id=<?php echo($productItem->id)?>" class="cart-btn">add to cart</a>
+                                        <a href="
+                                        <?php
+                                            if($productItem->stock>0){
+                                                echo("addToCart.php?id=$productItem->id");
+                                            }
+                                            else{
+                                                echo("#");
+                                            }
+                                        ?>" class="cart-btn">
+                                        <?php
+                                            if($productItem->stock>0){
+                                                echo("add to cart");
+                                            }
+                                            else{
+                                                echo("no stock");
+                                            }
+                                        ?>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="content">
